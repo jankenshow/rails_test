@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestBlog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+  <body>
+    <header>
+      <p id="logo">
+        <%= link_to root_url do %>
+          RailsCamp<span>Blog</span>
+        <% end %>
+      </p>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_url %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Post new Blog', new_blog_path %></li>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <li><%= link_to 'Log in', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+    
+    <footer>
+    <div id="footer_inner">
+        <p>Copyright RailsCamp 2015 All Rights Reserved</p>
+    </div>
+</footer>
+  </body>
+</html>
