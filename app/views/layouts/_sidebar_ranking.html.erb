@@ -1,0 +1,14 @@
+<div id="sidebar">
+  <h2>★PV数ランキング</h2>
+  <% set_ranking_data %>
+  <ul>
+    <% @ids.each do |blog_id, pv| %>
+      <% blog = Blog.find_by(id: blog_id) %>
+      <li>
+        <%= link_to blog do %>
+          <%= "#{blog.title} " %><span><%= "(#{pv.to_i} PV)" %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

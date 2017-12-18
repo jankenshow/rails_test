@@ -21,6 +21,7 @@
           <% if user_signed_in? %>
             <li><%= link_to 'Post new Blog', new_blog_path %></li>
             <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            <li><div id="user_info"><%= current_user.email %></div></li>
           <% else %>
             <li><%= link_to 'Sign up', new_user_registration_path %></li>
             <li><%= link_to 'Log in', new_user_session_path %></li>
@@ -29,15 +30,24 @@
       </nav>
     </header>
     
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+    <div id="text">
     
-    <footer>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    
+    <%= yield %>
+
+  </div>
+
+  <footer>
     <div id="footer_inner">
         <p>Copyright RailsCamp 2015 All Rights Reserved</p>
     </div>
-</footer>
+  </footer>
+    
+    <!--<%= debug(params) if Rails.env.development? %>-->
   </body>
 </html>

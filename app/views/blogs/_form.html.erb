@@ -12,20 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label "user" %>hidden
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :blog_title %>
   </div>
 
-  <div class="field">
+  <div class="area">
     <%= form.label :body %>
     <%= form.text_area :body, id: :blog_body %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Post", class: "btn btn-primary" %>
   </div>
 <% end %>

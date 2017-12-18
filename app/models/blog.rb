@@ -1,6 +1,6 @@
 class Blog < ApplicationRecord
-    belongs_to :users
+    belongs_to :users, optional: true
     
     validates :title, :body, presence: true
-    validates :body, length: { minimum: 10 }
+    validates :body, length: { minimum: 5 }
 end

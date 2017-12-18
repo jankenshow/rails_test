@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div id="title">
+  <div>
+    <p>
+      Written by_<%= User.find_by(id: @blog.user_id).email %>
+    </p>
+    <p>
+      <%= @blog.created_at.strftime("%Y/%m/%d") %>
+    </p>
+    <h1><%= @blog.title %></h1>
+  </div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @blog.user_id %>
-</p>
+<div id="article_wrap">
+  <div id="content">
+    <p><%= @blog.body %></p>
+    <p>
+    <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_blog_path(@blog) %> |
+    <% end %>
+    <%= link_to 'Back', blogs_path %>
+    </p>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+<%= render 'layouts/sidebar_ranking' %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+</div>

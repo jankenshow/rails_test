@@ -38,14 +38,24 @@ a{
     text-decoration: none;
 }
 
+#text {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
 
 /* ヘッダー
 ------------------------------------------------------------*/
 
 header{
+    position: fixed;
+    top: 0;
     width: 1000px;
-    padding: 20px 0;
+    padding-left: 200px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 200px;
     margin: 0 auto;
+    background-color: #fff;
 }
 
 p#logo{
@@ -56,6 +66,7 @@ p#logo{
 
 p#logo a{
     color: #161616;
+    text-shadow:3px 3px 2px DarkGray;
 }
 
 p#logo a span{
@@ -72,6 +83,12 @@ nav ul li{
     float: left;
     margin-left: 30px;
     list-style-type: none;
+}
+
+nav ul li div#user{
+    color: #7d7d7d;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 nav ul li a{
@@ -92,9 +109,15 @@ div#main{
 /* トップ　ー　記事一覧
 ------------------------------------------------------------*/
 
+div#sub{
+    width: 960px;
+    padding-left: 250px;
+    /*margin: 0 auto;*/
+}
+
 div#article_wrap{
     width: 1000px;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 div#article_list{
@@ -147,6 +170,9 @@ div#sidebar ul li a span{
 /* トップ　ー　フッター
 ------------------------------------------------------------*/
 footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     padding: 20px 0;
     background-color: #161616;
 }
